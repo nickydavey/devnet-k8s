@@ -39,5 +39,5 @@ Demonstrates kubernetes deployments to deploy multiple replicas of the pod
 ### deployment_recreate.yml
   Demonstrates Kubernetes ReCreate deployment strategy, i.e. Big Bang
   
-### deploymnet_RollingUpdate.yml
+### deployment_RollingUpdate.yml
   Demonstrates Kubernetes RollingUpdate deployment strategy
