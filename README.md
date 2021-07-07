@@ -11,7 +11,7 @@ Dockerfiles are included in the docker folder
 
 ### simple_pod.yml
 
-creates a pod with a single container run a flash app on port 5000. 
+creates a pod with a single container run a flash app on port 5000 
 /index returns "Hello from Kubernetes POD <pod name>"
 
 ### multi_container_pod.yml
