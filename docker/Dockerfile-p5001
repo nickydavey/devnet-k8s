@@ -1,0 +1,9 @@
+FROM python:3.8-slim
+
+WORKDIR /app
+COPY app_p5001/requirements.txt /app
+COPY app_p5001/flask_app2.py /app
+RUN pip install -r requirements.txt
+EXPOSE 8080
+
+CMD ["python", "flask_app2.py"]

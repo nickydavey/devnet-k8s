@@ -1,0 +1,54 @@
+#This is an example of a Big Bang Deploymnet i.e. Recreate Kuberentes deploymnet strategy type
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-var
+data:
+  db_url: "db_host.example.com/my_db"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deploy
+spec:
+  replicas: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      role: webapp
+  template:
+    metadata:
+      labels:
+        role: webapp
+    spec:
+      containers:
+        - name: flaskapp
+          image: daveyn/devnet:flaskapp2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 300Mi
+      imagePullSecrets:
+        - name: regcred
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 5000
+      nodePort: 30000
+  selector:
+    role: webapp
