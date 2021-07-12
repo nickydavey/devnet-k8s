@@ -11,7 +11,7 @@ Dockerfiles are included in the docker folder
 
 ### simple_pod.yml
 
-creates a pod with a single container run a flash app on port 5000 
+creates a pod with a single container running a flash app on port 5000 
 /index returns "Hello from Kubernetes POD pod-name"
 
 ### multi_container_pod.yml
@@ -22,7 +22,7 @@ Demonstrates a Pod running 2 containers
   Adds a service to the simple pod using the default ClusterIP service type
   
 ### pod_service_nodePort.yml
-  Demonstrates a service using the NodePort type, showing the app is reachability via a node IP:Port combination
+  Demonstrates a service using the NodePort type, showing the app is reachable via a node IP:Port combination
   
 ### pod_service_configmap.yml
   Demonstrates how to pass environment variables to a Pod using configMaps
